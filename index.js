@@ -25,7 +25,6 @@
 const inquirer = require('inquirer');
 const fs = require('fs');
 
-
 inquirer
     .prompt([
         {// title
@@ -37,11 +36,11 @@ inquirer
             type: 'checkbox',
             name: 'sections',
             message: 'Which of the following do you want in your README?',
-            choices: ['Table of Contents', 'Installation', 'Description', 'Usage', 'Contributions', 'Licensure', 'Test']
+            choices: ['Table of Contents', 'Installation', 'Description', 'Usage', 'Contributions', 'Licensure', 'Test'],
         },
         // {// table of contents - might not need - need to be turned into links
         //     type: 'checkbox',
-        //     name: 'table-of-contents',
+        //     name: 'TableofContents',
         //     message: 'Which of the following should be in your Table of Contents?',
         //     choices: ['Table of Contents', 'Installation', 'Description', 'Usage', 'License', 'Contributions']
         // },
@@ -94,20 +93,16 @@ inquirer
         let title = `# ${responses.title} \n \n`;
 
         // Creates and fills in file
-        fs.writeFile("README.md", title, function(err) {
-            if (err) {
-                console.log(err);
-            }
-            else {
-                console.log("File Written");
-            };
-        }); // .writeFile Function
+        fs.writeFile("README.md", title, (err) =>
+            err ? console.error(err) : console.log("File Written")
+        ); // .writeFile Function
 
+        
         // Sections
-        // let sections = `# ${responses.sections[0]} \n \n`;
-        // fs.appendFile("README.md", sections, (err) =>
-        //     err ? console.error(err) : console.log("Files Appended")
-        // );
+        let sections = `# ${responses.sections[0]} \n \n`;
+        fs.appendFile("README.md", sections, (err) =>
+            err ? console.error(err) : console.log("Files Appended")
+        );
 
         for (let i; i < responses.sections.length; i++){
             let sections = `# ${responses.sections[i]} \n \n`;

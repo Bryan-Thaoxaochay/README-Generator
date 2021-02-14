@@ -1,0 +1,36 @@
+const generateREADME = (responses) => 
+`
+# ${responses.title}
+
+# ${responses.sections[0]} Table of Contents
+
+# ${responses.sections[1]} Installation
+
+# ${responses.sections[2]} Description
+
+# ${responses.sections[3]} Usage
+
+# ${responses.sections[4]} Contributions
+
+# ${responses.sections[5]} Licensure
+
+# ${responses.sections[6]}Test
+
+`
+const README = generateREADME(responses);
+
+
+// In Sections
+table: function() {
+                for (const i = 0; i < this.choices[i]; i++) {
+                    let sections = `# ${this.choices[i]} \n \n`;
+                    console.log("HELLO");
+
+                    // Appending things to file
+                    fs.appendFile("README.md", sections, (err) =>
+                    err ? console.error(err) : console.log("Files Appended")
+                    );
+                } // For Loop
+            } // Table Function
+
+responses.table;

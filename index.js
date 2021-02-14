@@ -38,59 +38,82 @@ inquirer
             message: 'Which of the following do you want in your README?',
             choices: ['Table of Contents', 'Installation', 'Description', 'Usage', 'Contributions', 'Licensure', 'Test']
         },
-        {// table of contents - might not need - need to be turned into links
-            type: 'checkbox',
-            name: 'table-of-contents',
-            message: 'Which of the following should be in your Table of Contents?',
-            choices: ['Table of Contents', 'Installation', 'Description', 'Usage', 'License', 'Contributions']
-        },
-        {// description
-            type: 'input',
-            name: 'description',
-            message: 'Could you please describe your project in 1-2 sentences?'
-        },
-        {// installation instructions - need to turn into a list somehow
-            type: 'input',
-            name: 'installation',
-            message: 'Please provide a step-by-step description on how to get the development environment running.'
-        },
-        {// usage info - need to link instructions and images
-            type: 'input',
-            name: 'usage',
-            message: 'Please provide instructions on how to use the application, along with the necessary screenshots.'
-        },
-        {// contribution guidelines - need to add links to Github URL as well
-            type: 'input',
-            name: 'contributions',
-            message: 'Please list any collaborators (if any).'
-        },
-        {// licensure - need badge and explanation of use
-            type: 'checkbox',
-            name: 'licensure',
-            message: 'Please choose a license.',
-            choices: ['GNU AGPLv3', 'GNU GPLv3', 'GNU LGPLv3', 'Mozilla Public License 2.0', 'Apache License 2.0', 'MIT License', 'Boost Software License 1.0', 'The Unlicense']
-        },
-        {//github - need link
-            type: 'input',
-            name: 'github',
-            message: 'What is your Github username?'
-        },
-        {//email
-            type: 'input',
-            name: 'email',
-            message: 'What is your email?'
-        },
-        {// test instructions
-            type: 'checkbox',
-            name: 'testYesNo',
-            message: 'Will this include tests for the applications?',
-            choices: ['Yes', 'No']
-        },
-    ])
-    // .then((responses) => {
+        // {// table of contents - might not need - need to be turned into links
+        //     type: 'checkbox',
+        //     name: 'table-of-contents',
+        //     message: 'Which of the following should be in your Table of Contents?',
+        //     choices: ['Table of Contents', 'Installation', 'Description', 'Usage', 'License', 'Contributions']
+        // },
+        // {// description
+        //     type: 'input',
+        //     name: 'description',
+        //     message: 'Could you please describe your project in 1-2 sentences?'
+        // },
+        // {// installation instructions - need to turn into a list somehow
+        //     type: 'input',
+        //     name: 'installation',
+        //     message: 'Please provide a step-by-step description on how to get the development environment running.'
+        // },
+        // {// usage info - need to link instructions and images
+        //     type: 'input',
+        //     name: 'usage',
+        //     message: 'Please provide instructions on how to use the application, along with the necessary screenshots.'
+        // },
+        // {// contribution guidelines - need to add links to Github URL as well
+        //     type: 'input',
+        //     name: 'contributions',
+        //     message: 'Please list any collaborators (if any).'
+        // },
+        // {// licensure - need badge and explanation of use
+        //     type: 'checkbox',
+        //     name: 'licensure',
+        //     message: 'Please choose a license.',
+        //     choices: ['GNU AGPLv3', 'GNU GPLv3', 'GNU LGPLv3', 'Mozilla Public License 2.0', 'Apache License 2.0', 'MIT License', 'Boost Software License 1.0', 'The Unlicense']
+        // },
+        // {//github - need link
+        //     type: 'input',
+        //     name: 'github',
+        //     message: 'What is your Github username?'
+        // },
+        // {//email
+        //     type: 'input',
+        //     name: 'email',
+        //     message: 'What is your email?'
+        // },
+        // {// test instructions
+        //     type: 'checkbox',
+        //     name: 'testYesNo',
+        //     message: 'Will this include tests for the applications?',
+        //     choices: ['Yes', 'No'],
+        // },
+    ]) // Inquirer
+    .then((responses) => {
 
+        // Title
+        let title = "# " + responses.title + "\n \n";
 
-    //     // Creates and fills in file
-    //     fs.writeFile("README.md", (err) =>
-    //         err ? console.log(err) : console.log("File Written"))
-    // })
+        // Sections
+        
+
+        // Creates and fills in file
+        fs.writeFile("README.md", title, function(err) {
+            if (err) {
+                console.log(err);
+            }
+            else {
+                console.log("File Written");
+            };
+        }); // .writeFile Function
+
+        for (var i; i < responses.sections.length; i++){
+                let sections = "# " + responses.sections[i] + "\n \n";
+                console.log("HELLO");
+
+                // Appending things to file
+                fs.appendFile("README.md", sections[i], (err) =>
+                err ? console.error(err) : console.log("Files Appended")
+                );
+                
+            }; // Sections For Loop
+
+    }) // Then

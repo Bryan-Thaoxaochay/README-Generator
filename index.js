@@ -36,7 +36,7 @@ inquirer
             type: 'checkbox',
             name: 'sections',
             message: 'Which of the following do you want in your README?',
-            choices: ['Table of Contents', 'Installation', 'Description', 'Usage', 'License', 'Contributions']
+            choices: ['Table of Contents', 'Installation', 'Description', 'Usage', 'Contributions', 'Licensure', 'Test']
         },
         {// table of contents - might not need - need to be turned into links
             type: 'checkbox',
@@ -64,11 +64,6 @@ inquirer
             name: 'contributions',
             message: 'Please list any collaborators (if any).'
         },
-        {// test instructions
-            type: '',
-            name: '',
-            message: ''
-        },
         {// licensure - need badge and explanation of use
             type: 'checkbox',
             name: 'licensure',
@@ -85,10 +80,17 @@ inquirer
             name: 'email',
             message: 'What is your email?'
         },
-    ]).then((responses) => {
+        {// test instructions
+            type: 'checkbox',
+            name: 'testYesNo',
+            message: 'Will this include tests for the applications?',
+            choices: ['Yes', 'No']
+        },
+    ])
+    // .then((responses) => {
 
 
-        // Creates and fills in file
-        fs.writeFile("README.md", (err) =>
-            err ? console.log(err) : console.log("File Written"))
-    })
+    //     // Creates and fills in file
+    //     fs.writeFile("README.md", (err) =>
+    //         err ? console.log(err) : console.log("File Written"))
+    // })

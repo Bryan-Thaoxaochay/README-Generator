@@ -97,22 +97,43 @@ inquirer
             err ? console.error(err) : console.log("File Written")
         ); // .writeFile Function
 
-        
+
         // Sections
-        let sections = `# ${responses.sections[0]} \n \n`;
-        fs.appendFile("README.md", sections, (err) =>
+        let section0 = `## ${responses.sections[0]} \n \n`;
+        fs.appendFile("README.md", section0, (err) =>
             err ? console.error(err) : console.log("Files Appended")
         );
 
-        for (let i; i < responses.sections.length; i++){
-            let sections = `# ${responses.sections[i]} \n \n`;
-            console.log("HELLO");
-
-            // Appending things to file
-            fs.appendFile("README.md", sections, (err) =>
+        let section1 = `## ${responses.sections[1]} \n \n`;
+        fs.appendFile("README.md", section1, (err) =>
             err ? console.error(err) : console.log("Files Appended")
-            );
-            
-        }; // Sections For Loop
+        );
+
+        let section2 = `## ${responses.sections[2]} \n \n`;
+        fs.appendFile("README.md", section2, (err) =>
+            err ? console.error(err) : console.log("Files Appended")
+        );
+
+        let section3 = `## ${responses.sections[3]} \n \n`;
+        fs.appendFile("README.md", section3, (err) =>
+            err ? console.error(err) : console.log("Files Appended")
+        );
+
+        let section4 = `## ${responses.sections[4]} \n \n`;
+        fs.appendFile("README.md", section4, (err) =>
+            err ? console.error(err) : console.log("Files Appended")
+        );
+
+        let section5 = `## ${responses.sections[5]} \n \n`;
+        fs.appendFile("README.md", section5, (err) =>
+            err ? console.error(err) : console.log("Files Appended")
+        );
+
+        let section6 = `## ${responses.sections[6]} \n \n`;
+        fs.appendFile("README.md", section6, (err) =>
+            err ? console.error(err) : console.log("Files Appended")
+        );
+
+
 
     }) // Then

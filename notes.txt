@@ -34,3 +34,14 @@ table: function() {
             } // Table Function
 
 responses.table;
+
+for (let i; i < responses.sections.length; i++){
+            let sections = `# ${responses.sections[i]} \n \n`;
+            console.log("HELLO");
+
+            // Appending things to file
+            fs.appendFile("README.md", sections, (err) =>
+            err ? console.error(err) : console.log("Files Appended")
+            );
+            
+        }; // Sections For Loop

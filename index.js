@@ -25,6 +25,7 @@
 const inquirer = require('inquirer');
 const fs = require('fs');
 
+
 inquirer
     .prompt([
         {// title
@@ -90,10 +91,7 @@ inquirer
     .then((responses) => {
 
         // Title
-        let title = "# " + responses.title + "\n \n";
-
-        // Sections
-        
+        let title = `# ${responses.title} \n \n`;
 
         // Creates and fills in file
         fs.writeFile("README.md", title, function(err) {
@@ -105,15 +103,21 @@ inquirer
             };
         }); // .writeFile Function
 
-        for (var i; i < responses.sections.length; i++){
-                let sections = "# " + responses.sections[i] + "\n \n";
-                console.log("HELLO");
+        // Sections
+        // let sections = `# ${responses.sections[0]} \n \n`;
+        // fs.appendFile("README.md", sections, (err) =>
+        //     err ? console.error(err) : console.log("Files Appended")
+        // );
 
-                // Appending things to file
-                fs.appendFile("README.md", sections[i], (err) =>
-                err ? console.error(err) : console.log("Files Appended")
-                );
-                
-            }; // Sections For Loop
+        for (let i; i < responses.sections.length; i++){
+            let sections = `# ${responses.sections[i]} \n \n`;
+            console.log("HELLO");
+
+            // Appending things to file
+            fs.appendFile("README.md", sections, (err) =>
+            err ? console.error(err) : console.log("Files Appended")
+            );
+            
+        }; // Sections For Loop
 
     }) // Then

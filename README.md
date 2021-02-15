@@ -1,47 +1,32 @@
-# a
 
-## Table of Contents 
-
-* [Installation](#Installation)
-
-* [Description](#Description)
-
-* [Usage](#Usage)
-
-* [License](#Contributions)
-
-* [Contributions](#Licensure)
-
-* [Questions](#Questions)
-
-* [Test](#Test)
-
-
-## Installation 
-
-a
-    
-## Description 
-
-a
-    
-## Usage
-
-a
-
-## Contributions
-
-a
-
-## Licensure 
-
-GNU AGPLv3,GNU GPLv3,GNU LGPLv3,Mozilla Public License 2.0,Apache License 2.0,MIT License,Boost Software License 1.0,The Unlicense
-
-## Questions 
-
-* Github: [Bryan-Thaoxaochay](https://github.com/Bryan-Thaoxaochay)
-* Email: a
-
-## Test
-
-Yes,No
+# README Generator
+## Table of Contents
+ 
+* [${Installation}](#${responses.sections[1]}) 
+ 
+ ## Installation
+ 
+* [${Description}](#${responses.sections[1]}) 
+ 
+ ## Description
+ 
+* [${Usage}](#${responses.sections[1]}) 
+ 
+ ## Usage
+ 
+* [${Contributions}](#${responses.sections[1]}) 
+ 
+ ## Contributions
+ 
+* [${Licensure}](#${responses.sections[1]}) 
+ 
+ ## Licensure
+ 
+* [${Questions}](#${responses.sections[1]}) 
+ 
+ ## Questions
+ 
+* [${Test}](#${responses.sections[1]}) 
+ 
+ ## Test
+ 

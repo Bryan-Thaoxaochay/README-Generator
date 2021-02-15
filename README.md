@@ -36,7 +36,7 @@ a
 
 ## Licensure 
 
-GNU AGPLv3,GNU GPLv3,GNU LGPLv3,Mozilla Public License 2.0,Apache License 2.0,MIT License,Boost Software License 1.0,The Unlicense
+GNU AGPLv3 [Explanation](https://choosealicense.com/licenses/agpl-3.0/)
 
 ## Questions 
 
@@ -47,5 +47,5 @@ Feel free to contact me via email with any questions.
 
 ## Test
 
-Yes,No
+a
 

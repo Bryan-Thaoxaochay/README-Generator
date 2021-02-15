@@ -96,7 +96,16 @@ inquirer
             type: 'checkbox',
             name: 'licensure',
             message: 'Please choose a license.',
-            choices: ['GNU AGPLv3', 'GNU GPLv3', 'GNU LGPLv3', 'Mozilla Public License 2.0', 'Apache License 2.0', 'MIT License', 'Boost Software License 1.0', 'The Unlicense']
+            choices: [
+                'GNU AGPLv3 [Explanation](https://choosealicense.com/licenses/agpl-3.0/)', 
+                'GNU GPLv3 [Explanation](https://choosealicense.com/licenses/gpl-3.0/)', 
+                'GNU LGPLv3 [Explanation](https://choosealicense.com/licenses/lgpl-3.0/)', 
+                'Mozilla Public License 2.0 [Explanation](https://choosealicense.com/licenses/mpl-2.0/)', 
+                'Apache License 2.0 [Explanation](https://choosealicense.com/licenses/apache-2.0/)', 
+                'MIT License [Explanation](https://choosealicense.com/licenses/mit/)', 
+                'Boost Software License 1.0 [Explanation](https://choosealicense.com/licenses/bsl-1.0/)', 
+                'The Unlicense [Explanation](https://choosealicense.com/licenses/unlicense/)'
+            ]
         },
         {//github
             type: 'input',

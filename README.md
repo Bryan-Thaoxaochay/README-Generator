@@ -1,39 +1,39 @@
-# README Generator
+# a
 
 ## Table of Contents 
 
-* Installation
+* [Installation](#Installation)
 
-* Description
+* [Description](#Description)
 
-* Usage
+* [Usage](#Usage)
 
-* License
+* [License](#Contributions)
 
-* Contributions
+* [Contributions](#Licensure)
 
-* Test
+* [Test](#Test)
 
 ## Installation 
 
-2
+a
     
 ## Description 
 
-1
+a
     
 ## Usage
 
-3
+a
 
 ## Contributions
 
-4
+a
 
 ## Licensure 
 
-GNU AGPLv3
+GNU AGPLv3,GNU GPLv3,GNU LGPLv3,Mozilla Public License 2.0,Apache License 2.0,MIT License,Boost Software License 1.0,The Unlicense
 
 ## Test
 
-No
+Yes,No

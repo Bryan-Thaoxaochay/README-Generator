@@ -1,41 +1,22 @@
 const inquirer = require('inquirer');
 const fs = require('fs');
 
-// const generateREADME = (responses) => 
-// `
-// # ${responses.title}
-
-// # ${responses.sections[0]} 
-
-// # ${responses.sections[1]} 
-
-// # ${responses.sections[2]} 
-
-// # ${responses.sections[3]} 
-
-// # ${responses.sections[4]} 
-
-// # ${responses.sections[5]} 
-
-// # ${responses.sections[6]}
-
-// `
 const generateREADME = (responses) =>
 `# ${responses.title}
 
 ## ${responses.sections[0]} 
 
-* ${responses.TableofContents[0]}
+* [${responses.TableofContents[0]}](#${responses.sections[1]})
 
-* ${responses.TableofContents[1]}
+* [${responses.TableofContents[1]}](#${responses.sections[2]})
 
-* ${responses.TableofContents[2]}
+* [${responses.TableofContents[2]}](#${responses.sections[3]})
 
-* ${responses.TableofContents[3]}
+* [${responses.TableofContents[3]}](#${responses.sections[4]})
 
-* ${responses.TableofContents[4]}
+* [${responses.TableofContents[4]}](#${responses.sections[5]})
 
-* ${responses.TableofContents[5]}
+* [${responses.TableofContents[5]}](#${responses.sections[6]})
 
 ## ${responses.sections[1]} 
 
@@ -131,6 +112,5 @@ inquirer
         fs.writeFile("README.md", README, (err) =>
             err ? console.error(err) : console.log("MD Created")
         );
-
 
     }) // Then

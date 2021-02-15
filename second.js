@@ -68,6 +68,8 @@ ${responses.licensure}
 * Github: [${responses.github}](https://github.com/${responses.github})
 * Email: ${responses.email}
 
+Feel free to contact me via email with any questions.
+
 ## ${responses.sections[7]}
 
 ${responses.testYesNo}

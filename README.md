@@ -1,26 +1,39 @@
-# README Generator 
- 
-### * Installation 
- 
-### * Description 
- 
+# README Generator
+
 ## Table of Contents 
- 
-### * Usage 
- 
-### * Contributions 
- 
-### * License 
- 
+
+* Installation
+
+* Description
+
+* Usage
+
+* License
+
+* Contributions
+
+* Test
+
 ## Installation 
- 
+
+2
+    
 ## Description 
- 
-## Contributions 
- 
-## Usage 
- 
-## Test 
- 
+
+1
+    
+## Usage
+
+3
+
+## Contributions
+
+4
+
 ## Licensure 
- 
+
+GNU AGPLv3
+
+## Test
+
+No

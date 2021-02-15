@@ -1,3 +1,25 @@
+// GIVEN a command-line application that accepts user input
+// WHEN I am prompted for information about my application repository
+// THEN a high-quality, professional README.md is generated with the title of my project and sections entitled Description, Table of Contents, Installation, Usage, License, Contributing, Tests, and Questions
+
+// WHEN I enter my project title
+// THEN this is displayed as the title of the README - DONE
+
+// WHEN I enter a description, installation instructions, usage information, contribution guidelines, and test instructions
+// THEN this information is added to the sections of the README entitled Description, Installation, Usage, Contributing, and Tests - DONE
+
+// WHEN I choose a license for my application from a list of options
+// THEN a badge for that license is added near the top of the README and a notice is added to the section of the README entitled License that explains which license the application is covered under
+
+// WHEN I enter my GitHub username
+// THEN this is added to the section of the README entitled Questions, with a link to my GitHub profile - DONE
+
+// WHEN I enter my email address
+// THEN this is added to the section of the README entitled Questions, with instructions on how to reach me with additional questions - DONE
+
+// WHEN I click on the links in the Table of Contents
+// THEN I am taken to the corresponding section of the README - DONE
+
 const inquirer = require('inquirer');
 const fs = require('fs');
 
@@ -17,6 +39,9 @@ const generateREADME = (responses) =>
 * [${responses.TableofContents[4]}](#${responses.sections[5]})
 
 * [${responses.TableofContents[5]}](#${responses.sections[6]})
+
+* [${responses.TableofContents[6]}](#${responses.sections[7]})
+
 
 ## ${responses.sections[1]} 
 
@@ -38,7 +63,12 @@ ${responses.contributions}
 
 ${responses.licensure}
 
-## ${responses.sections[6]}
+## ${responses.sections[6]} 
+
+* Github: ${responses.github}
+* Email: ${responses.email}
+
+## ${responses.sections[7]}
 
 ${responses.testYesNo}
 `
@@ -54,13 +84,13 @@ inquirer
             type: 'checkbox',
             name: 'sections',
             message: 'Which of the following do you want in your README?',
-            choices: ['Table of Contents', 'Installation', 'Description', 'Usage', 'Contributions', 'Licensure', 'Test'],
+            choices: ['Table of Contents', 'Installation', 'Description', 'Usage', 'Contributions', 'Licensure', 'Questions', 'Test'],
         },
         {// table of contents - might not need - need to be turned into links
             type: 'checkbox',
             name: 'TableofContents',
             message: 'Which of the following should be in your Table of Contents?',
-            choices: ['Installation', 'Description', 'Usage', 'License', 'Contributions', 'Test']
+            choices: ['Installation', 'Description', 'Usage', 'License', 'Contributions', 'Questions', 'Test']
         },
         {// description
             type: 'input',
@@ -107,7 +137,6 @@ inquirer
     ]) // Inquirer
     .then((responses) => {
         
-        // const stringResponses = JSON.stringify(responses)
         const README = generateREADME(responses);
         fs.writeFile("README.md", README, (err) =>
             err ? console.error(err) : console.log("MD Created")

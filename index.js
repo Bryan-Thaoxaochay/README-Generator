@@ -38,12 +38,12 @@ inquirer
             message: 'Which of the following do you want in your README?',
             choices: ['Table of Contents', 'Installation', 'Description', 'Usage', 'Contributions', 'Licensure', 'Test'],
         },
-        // {// table of contents - might not need - need to be turned into links
-        //     type: 'checkbox',
-        //     name: 'TableofContents',
-        //     message: 'Which of the following should be in your Table of Contents?',
-        //     choices: ['Table of Contents', 'Installation', 'Description', 'Usage', 'License', 'Contributions']
-        // },
+        {// table of contents - might not need - need to be turned into links
+            type: 'checkbox',
+            name: 'TableofContents',
+            message: 'Which of the following should be in your Table of Contents?',
+            choices: ['Installation', 'Description', 'Usage', 'License', 'Contributions']
+        },
         // {// description
         //     type: 'input',
         //     name: 'description',
@@ -98,41 +98,67 @@ inquirer
         ); // .writeFile Function
 
 
-        // Sections
+        // Sections - don't appear in order, repetitive, and there are undefined
         let section0 = `## ${responses.sections[0]} \n \n`;
-        fs.appendFile("README.md", section0, (err) =>
+            fs.appendFile("README.md", section0, (err) =>
             err ? console.error(err) : console.log("Files Appended")
-        );
+            );
+
+        // Table of Contents - don't appear in order, repetitive, and there are undefined
+        let TableofContents0 = `### * ${responses.TableofContents[0]} \n \n`
+            fs.appendFile("README.md", TableofContents0, (err) =>
+                err ? console.error(err) : console.log("Table Appended")
+            );
+
+        let TableofContents1 = `### * ${responses.TableofContents[1]} \n \n`
+            fs.appendFile("README.md", TableofContents1, (err) =>
+                err ? console.error(err) : console.log("Table Appended")
+            );
+
+        let TableofContents2 = `### * ${responses.TableofContents[2]} \n \n`
+            fs.appendFile("README.md", TableofContents2, (err) =>
+                err ? console.error(err) : console.log("Table Appended")
+            );
+
+        let TableofContents3 = `### * ${responses.TableofContents[3]} \n \n`
+            fs.appendFile("README.md", TableofContents3, (err) =>
+                err ? console.error(err) : console.log("Table Appended")
+            );
+
+        let TableofContents4 = `### * ${responses.TableofContents[4]} \n \n`
+            fs.appendFile("README.md", TableofContents4, (err) =>
+                err ? console.error(err) : console.log("Table Appended")
+            );
 
         let section1 = `## ${responses.sections[1]} \n \n`;
-        fs.appendFile("README.md", section1, (err) =>
-            err ? console.error(err) : console.log("Files Appended")
-        );
+            fs.appendFile("README.md", section1, (err) =>
+                err ? console.error(err) : console.log("Files Appended")
+            );
 
         let section2 = `## ${responses.sections[2]} \n \n`;
-        fs.appendFile("README.md", section2, (err) =>
-            err ? console.error(err) : console.log("Files Appended")
-        );
+            fs.appendFile("README.md", section2, (err) =>
+                err ? console.error(err) : console.log("Files Appended")
+            );
 
         let section3 = `## ${responses.sections[3]} \n \n`;
-        fs.appendFile("README.md", section3, (err) =>
-            err ? console.error(err) : console.log("Files Appended")
-        );
+            fs.appendFile("README.md", section3, (err) =>
+                err ? console.error(err) : console.log("Files Appended")
+            );
 
         let section4 = `## ${responses.sections[4]} \n \n`;
-        fs.appendFile("README.md", section4, (err) =>
-            err ? console.error(err) : console.log("Files Appended")
-        );
+            fs.appendFile("README.md", section4, (err) =>
+                err ? console.error(err) : console.log("Files Appended")
+            );
 
         let section5 = `## ${responses.sections[5]} \n \n`;
-        fs.appendFile("README.md", section5, (err) =>
-            err ? console.error(err) : console.log("Files Appended")
-        );
+            fs.appendFile("README.md", section5, (err) =>
+                err ? console.error(err) : console.log("Files Appended")
+            );
 
         let section6 = `## ${responses.sections[6]} \n \n`;
-        fs.appendFile("README.md", section6, (err) =>
-            err ? console.error(err) : console.log("Files Appended")
-        );
+            fs.appendFile("README.md", section6, (err) =>
+                err ? console.error(err) : console.log("Files Appended")
+            );
 
 
 

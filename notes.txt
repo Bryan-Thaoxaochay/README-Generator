@@ -1,47 +1,142 @@
-const generateREADME = (responses) => 
+const inquirer = require('inquirer');
+const fs = require('fs');
+
+const generateREADME = (responses) =>
 `
 # ${responses.title}
-
-# ${responses.sections[0]} Table of Contents
-
-# ${responses.sections[1]} Installation
-
-# ${responses.sections[2]} Description
-
-# ${responses.sections[3]} Usage
-
-# ${responses.sections[4]} Contributions
-
-# ${responses.sections[5]} Licensure
-
-# ${responses.sections[6]}Test
-
 `
-const README = generateREADME(responses);
+
+// ## ${responses.sections[0]} 
+
+// * [${responses.TableofContents[0]}](#${responses.sections[1]})
+
+// * [${responses.TableofContents[1]}](#${responses.sections[2]})
+
+// * [${responses.TableofContents[2]}](#${responses.sections[3]})
+
+// * [${responses.TableofContents[3]}](#${responses.sections[4]})
+
+// * [${responses.TableofContents[4]}](#${responses.sections[5]})
+
+// * [${responses.TableofContents[5]}](#${responses.sections[6]})
+
+// * [${responses.TableofContents[6]}](#${responses.sections[7]})
 
 
-// In Sections
-table: function() {
-                for (const i = 0; i < this.choices[i]; i++) {
-                    let sections = `# ${this.choices[i]} \n \n`;
-                    console.log("HELLO");
+// ## ${responses.sections[1]} 
 
-                    // Appending things to file
-                    fs.appendFile("README.md", sections, (err) =>
-                    err ? console.error(err) : console.log("Files Appended")
-                    );
-                } // For Loop
-            } // Table Function
+// ${responses.installation}
+    
+// ## ${responses.sections[2]} 
 
-responses.table;
+// ${responses.description}
+    
+// ## ${responses.sections[3]}
 
-for (let i; i < responses.sections.length; i++){
-            let sections = `# ${responses.sections[i]} \n \n`;
-            console.log("HELLO");
+// ${responses.usage}
 
-            // Appending things to file
-            fs.appendFile("README.md", sections, (err) =>
-            err ? console.error(err) : console.log("Files Appended")
+// ## ${responses.sections[4]}
+
+// ${responses.contributions}
+
+// ## ${responses.sections[5]} 
+
+// ${responses.licensure}
+
+// ## ${responses.sections[6]} 
+
+// * Github: [${responses.github}](https://github.com/${responses.github})
+// * Email: ${responses.email}
+
+// Feel free to contact me via email with any questions.
+
+// ## ${responses.sections[7]}
+
+// ${responses.testYesNo}
+
+inquirer
+    .prompt([
+        {// title
+            type: 'input',
+            name: 'title',
+            message: 'What is the title of this project?'
+        },
+        {// sections
+            type: 'checkbox',
+            name: 'sections',
+            message: 'Which of the following do you want in your README?',
+            choices: ['Table of Contents', 'Installation', 'Description', 'Usage', 'Contributions', 'Licensure', 'Questions', 'Test'],
+        },
+        {// table of contents
+            type: 'checkbox',
+            name: 'TableofContents',
+            message: 'Which of the following should be in your Table of Contents?',
+            choices: ['Installation', 'Description', 'Usage', 'Contributions', 'Licensure', 'Questions', 'Test']
+        },
+        // {// description
+        //     type: 'input',
+        //     name: 'description',
+        //     message: 'Could you please describe your project in 1-2 sentences?'
+        // },
+        // {// installation instructions - need to turn into a list somehow
+        //     type: 'input',
+        //     name: 'installation',
+        //     message: 'Please provide a step-by-step description on how to get the development environment running.'
+        // },
+        // {// usage info - need to link instructions and images
+        //     type: 'input',
+        //     name: 'usage',
+        //     message: 'Please provide instructions on how to use the application, along with the necessary screenshots.'
+        // },
+        // {// contribution guidelines - need to add links to Github URL as well
+        //     type: 'input',
+        //     name: 'contributions',
+        //     message: 'Please list any collaborators (if any).'
+        // },
+        // {// licensure - need badge and explanation of use
+        //     type: 'checkbox',
+        //     name: 'licensure',
+        //     message: 'Please choose a license.',
+        //     choices: ['GNU AGPLv3', 'GNU GPLv3', 'GNU LGPLv3', 'Mozilla Public License 2.0', 'Apache License 2.0', 'MIT License', 'Boost Software License 1.0', 'The Unlicense']
+        // },
+        // {//github
+        //     type: 'input',
+        //     name: 'github',
+        //     message: 'What is your Github username (no @ needed)?'
+        // },
+        // {//email
+        //     type: 'input',
+        //     name: 'email',
+        //     message: 'What is your email?'
+        // },
+        // {// test instructions
+        //     type: 'checkbox',
+        //     name: 'testYesNo',
+        //     message: 'Will this include tests for the applications?',
+        //     choices: ['Yes', 'No'],
+        // },
+    ]) // Inquirer
+    .then((responses) => {
+
+        function sections(num1, ...theRest) {
+            let README = generateREADME(responses);
+            let READMEandTitle = README += "## " + num1 + "\n \n"
+
+            responses.TableofContents.forEach(content => {
+                READMEandTitle += "* [${" + content + "}](#${responses.sections[1]}) \n \n"
+            }) // Turns into link, but linked incorrectly
+
+            theRest.forEach(section => {
+                READMEandTitle += "## " + section + "\n \n"
+            }) 
+
+            fs.writeFile("README.md", READMEandTitle, (err) =>
+                err ? console.error(err) : console.log("MD Created")
             );
-            
-        }; // Sections For Loop
+
+        } // Section Function
+
+        sections(responses.sections[0], responses.sections)
+
+
+    }) // Then

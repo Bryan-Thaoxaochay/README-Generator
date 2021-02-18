@@ -40,7 +40,7 @@ ${responses.contributions}
 
 ## ${responses.sections[5]} 
 
-${responses.licensure}
+${licensure}
 
 ## ${responses.sections[6]} 
 
@@ -127,6 +127,11 @@ inquirer
         },
     ]) // Inquirer
     .then((responses) => {
+
+        let licensure = responses.licensure
+        if (licensure = responses.licensure[0]) {
+            licensure += 'GNU AGPLv3 [![License: AGPL v3](https://img.shields.io/badge/License-AGPL%20v3-blue.svg)] \n \n(http://www.gnu.org/licenses/agpl-3.0)[Explanation](https://choosealicense.com/licenses/agpl-3.0/)'
+        }
 
         const README = generateREADME(responses);
 
